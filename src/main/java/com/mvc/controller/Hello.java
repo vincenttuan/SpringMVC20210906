@@ -1,6 +1,8 @@
 package com.mvc.controller;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -109,6 +111,44 @@ public class Hello {
 		return String.format("%s , age of average = %d", ageList, (int)avg);
 	}
 	
+	/* Lab
+	 * 得到多筆 score 資料
+     * 網址輸入：/max?score=80&score=100&score=50
+     * 網址輸入：/min?score=80&score=100&score=50
+     * 結果得到：max score = 100
+	 * 結果得到：min score = 80
+	 * 建議使用：IntSummaryStatistics
+	 * */
+	@RequestMapping("/{opt}")
+	@ResponseBody
+	public String maxAndMin(@PathVariable("opt") String opt, 
+			                @RequestParam("score") List<Integer> scores) {
+		String str = "%s score = %d";
+		IntSummaryStatistics stat = scores.stream().mapToInt(score -> score).summaryStatistics();
+		switch (opt) {
+			case "max":
+				str = String.format(str, opt, stat.getMax());
+				break;
+			case "min":
+				str = String.format(str, opt, stat.getMin());
+				break;
+			default:
+				str = "None";
+				break;
+		}
+		return str;
+	}
+	
+	/*
+	 * Map 參數
+	 * 網址輸入：/mix?name=John&score=100&age=18&pass=true
+	 * 網址輸入：/mix?name=Mary&score=90&age=20&level=2
+	 * */
+	@RequestMapping("/mix")
+	@ResponseBody
+	public String mix(@RequestParam Map<String, String> map) {
+		return map.toString();
+	}
 }
 
 
