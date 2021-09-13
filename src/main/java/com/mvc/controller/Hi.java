@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,12 @@ public class Hi {
 		mav.setViewName("sayhi"); // 於 springmvc-servlet.xml 中有定義 ViewResolver 標籤的寫法
 		mav.addObject("username", "John");
 		return mav;
+	}
+	
+	@GetMapping(value = "/sayhi2")
+	public String sayhi2(Model model) {
+		model.addAttribute("username", "Mary");
+		return "sayhi"; // 直接回傳的就是 view 的名字(字串)
 	}
 	
 }
