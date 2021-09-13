@@ -54,6 +54,8 @@ public class ExamController {
 				.filter(e -> e.getId().equals(exam.getId()))
 				.findFirst();
 		if(optExam.isPresent()) {
+			// oExam 原本的資料
+			// 表單傳來 exam 要修改的資料
 			Exam oExam = optExam.get();
 			oExam.setName(exam.getName());
 			oExam.setSlot(exam.getSlot());

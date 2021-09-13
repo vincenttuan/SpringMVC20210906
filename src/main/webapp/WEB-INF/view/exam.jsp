@@ -57,6 +57,7 @@
 							<th>pay</th>
 							<th>note</th>
 							<th>edit</th>
+							<th>delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -72,6 +73,12 @@
 										onclick="location.href='${ pageContext.request.contextPath }/mvc/exam/get/${ e.id }'"
 										class="pure-button pure-button-primary">
 									edit
+								</button>
+							</td>
+							<td>
+								<button type="button" 
+										class="pure-button pure-button-primary">
+									delete
 								</button>
 							</td>
 						</tr>
