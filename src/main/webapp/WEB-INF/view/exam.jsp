@@ -56,6 +56,7 @@
 							<th>slot</th>
 							<th>pay</th>
 							<th>note</th>
+							<th>edit</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -66,6 +67,13 @@
 							<td>${ e.slotToString }</td>
 							<td>${ e.pay }</td>
 							<td>${ e.note }</td>
+							<td>
+								<button type="button" 
+										onclick="location.href='${ pageContext.request.contextPath }/mvc/exam/get/${ e.id }'"
+										class="pure-button pure-button-primary">
+									edit
+								</button>
+							</td>
 						</tr>
 						</c:forEach>
 					</tbody>

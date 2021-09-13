@@ -10,6 +10,8 @@ public class Exam {
 	private String pay;
 	private String note;
 	
+	// 將 slot 陣列轉字串使用
+	// Ex: ${ e.slotToString }
 	public String getSlotToString() {
 		return Arrays.toString(slot);
 	}
