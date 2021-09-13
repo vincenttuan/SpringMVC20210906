@@ -25,6 +25,7 @@ public class ExamController {
 		Exam e = new Exam();
 		model.addAttribute("exam", e); // 給表單使用
 		model.addAttribute("exams", exams); // 給資料呈現使用
+		model.addAttribute("action", "create");
 		return "exam";
 	}
 	
@@ -43,7 +44,24 @@ public class ExamController {
 							.findFirst();
 		model.addAttribute("exam", optExam.isPresent()?optExam.get():new Exam()); // 給表單使用
 		model.addAttribute("exams", exams); // 給資料呈現使用
+		model.addAttribute("action", "update");
 		return "exam";
+	}
+	
+	@RequestMapping(value = "/update")
+	public String update(Exam exam) {
+		Optional<Exam> optExam = exams.stream()
+				.filter(e -> e.getId().equals(exam.getId()))
+				.findFirst();
+		if(optExam.isPresent()) {
+			Exam oExam = optExam.get();
+			oExam.setName(exam.getName());
+			oExam.setSlot(exam.getSlot());
+			oExam.setPay(exam.getPay());
+			oExam.setNote(exam.getNote());
+		}
+		
+		return "redirect:/mvc/exam/"; // 重導到首頁
 	}
 	
 	
