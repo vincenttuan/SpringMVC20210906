@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +47,29 @@
 						<button type="reset" class="pure-button pure-button-primary">reset</button>
 					</fieldset>
 				</form:form>
+				<!-- 資料呈現 -->
+				<table class="pure-table pure-table-bordered">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>exam</th>
+							<th>slot</th>
+							<th>pay</th>
+							<th>note</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="e" items="${ exams }">
+						<tr>
+							<td>${ e.id }</td>
+							<td>${ e.name }</td>
+							<td>${ e.slotToString }</td>
+							<td>${ e.pay }</td>
+							<td>${ e.note }</td>
+						</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</td>
 			<!-- 資料統計圖 -->
 			<td valign="top"></td>

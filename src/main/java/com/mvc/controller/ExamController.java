@@ -19,7 +19,8 @@ public class ExamController {
 	@RequestMapping(value = {"/", "/index"})
 	public String index(Model model) {
 		Exam e = new Exam();
-		model.addAttribute("exam", e);
+		model.addAttribute("exam", e); // 給表單使用
+		model.addAttribute("exams", exams); // 給資料呈現使用
 		return "exam";
 	}
 	

@@ -10,6 +10,10 @@ public class Exam {
 	private String pay;
 	private String note;
 	
+	public String getSlotToString() {
+		return Arrays.toString(slot);
+	}
+	
 	public String getId() {
 		return id;
 	}
