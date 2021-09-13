@@ -5,11 +5,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.mvc.entity.User;
 
 @Controller
 @RequestMapping(value = "/hello")
@@ -148,6 +152,17 @@ public class Hello {
 	@ResponseBody
 	public String mix(@RequestParam Map<String, String> map) {
 		return map.toString();
+	}
+	
+	/*
+	 * Java pojo 物件
+	 * 網址輸入：/user?name=John&age=18
+	 * */
+	@RequestMapping("/user")
+	@ResponseBody
+	//public String getUser(@Valid User user) {
+	public String getUser(User user) {
+		return user.toString();
 	}
 }
 
