@@ -13,7 +13,10 @@
 		<tr>
 			<!-- 表單資料處理 CRUD -->
 			<td valign="top">
-				<form:form modelAttribute="exam" class="pure-form" method="post">
+				<form:form modelAttribute="exam" 
+							class="pure-form" 
+							method="post"
+							action="${ pageContext.request.contextPath }/mvc/exam/create">
 					<fieldset>
 						<legend>Exam Post 考試註冊</legend>
 						學員編號：<form:input path="id" placeholder="請輸入學員編號" />
