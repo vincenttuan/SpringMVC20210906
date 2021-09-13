@@ -34,7 +34,8 @@ public class Hi {
 	@GetMapping(value = "/sayhi")
 	public ModelAndView sayhi() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/sayhi.jsp");
+		//mav.setViewName("/WEB-INF/view/sayhi.jsp");
+		mav.setViewName("sayhi"); // 於 springmvc-servlet.xml 中有定義 ViewResolver 標籤的寫法
 		mav.addObject("username", "John");
 		return mav;
 	}
