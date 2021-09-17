@@ -69,7 +69,8 @@
 	<table border="0">
 		<tr>
 			<!-- 表單資料處理 CRUD -->
-			<td valign="top"><form:form modelAttribute="exam"
+			<td valign="top">
+			<form:form modelAttribute="exam"
 					class="pure-form" method="post"
 					action="${ pageContext.request.contextPath }/mvc/exam/${ action }">
 					<fieldset>
@@ -103,8 +104,13 @@
 						<p />
 						<button type="submit" class="pure-button pure-button-primary">${ action }</button>
 						<button type="reset" class="pure-button pure-button-primary">reset</button>
+						<p />
+						錯誤訊息：
+						<form:errors path="*" /> <!-- 顯示所有錯誤 -->
 					</fieldset>
-				</form:form> <!-- 資料呈現 -->
+				</form:form> 
+				
+				<!-- 資料呈現 -->
 				<table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
