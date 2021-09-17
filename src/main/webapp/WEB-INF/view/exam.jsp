@@ -62,8 +62,10 @@
 				.getElementById('columnchart'));
 		chart.draw(data, options);
 	}
-	
 </script>
+<style>
+	.error { color: #FF0000}
+</style>
 </head>
 <body style="padding: 15px;">
 	<table border="0">
@@ -77,6 +79,7 @@
 						<legend>Exam Post 考試註冊</legend>
 						學員編號：
 						<form:input path="id" placeholder="請輸入學員編號" />
+						<form:errors path="id" cssClass="error" />
 						<p />
 						考試代號：
 						<form:select path="name">
