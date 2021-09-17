@@ -82,12 +82,11 @@
 						<form:errors path="id" cssClass="error" />
 						<p />
 						考試代號：
-						<form:select path="name">
-							<form:option value="">請選擇</form:option>
-							<form:option value="808">OCP I 808</form:option>
-							<form:option value="809">OCP II 809</form:option>
-							<form:option value="900">OCAD 900</form:option>
-						</form:select>
+						<form:select path="name"
+							items="${ examNames }"
+							itemValue="id"
+							itemLabel="name" />
+							
 						<form:errors path="name" cssClass="error" />
 						<p />
 						考試時段（可複選）：

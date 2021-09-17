@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import static java.util.stream.Collectors.groupingBy;
+
+import java.util.ArrayList;
+
 import static java.util.stream.Collectors.counting;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +18,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mvc.entity.Exam;
+import com.mvc.entity.ExamName;
 import com.mvc.validator.ExamValidator;
 
 @Controller
 @RequestMapping("/exam")
 public class ExamController {
-
+	
 	private static List<Exam> exams = new CopyOnWriteArrayList<>();
+	private static List<ExamName> examNames = new ArrayList<>();
+	static {
+		examNames.add(new ExamName("808", "1Z0-808"));
+		examNames.add(new ExamName("809", "1Z0-809"));
+		examNames.add(new ExamName("900", "1Z0-900"));
+		examNames.add(new ExamName("819", "1Z0-819"));
+	}
+	
 	@Autowired
 	private ExamValidator examValidator;
 	
@@ -30,6 +42,7 @@ public class ExamController {
 		Exam e = new Exam();
 		model.addAttribute("exam", e); // 給表單使用
 		model.addAttribute("exams", exams); // 給資料呈現使用
+		model.addAttribute("examNames", examNames); // 給資料呈現使用
 		model.addAttribute("action", "create");
 		// 統計資料
 		model.addAttribute("stat1", getStat1());
@@ -46,6 +59,7 @@ public class ExamController {
 		// 驗證結果是否有錯誤 ?
 		if(result.hasErrors()) {
 			model.addAttribute("exams", exams); // 給資料呈現使用
+			model.addAttribute("examNames", examNames); // 給資料呈現使用
 			model.addAttribute("action", "create");
 			// 統計資料
 			model.addAttribute("stat1", getStat1());
