@@ -3,6 +3,9 @@ package com.mvc.entity;
 import java.util.Arrays;
 import java.util.Objects;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class Exam {
 	private String id;
 	private String name;

@@ -6,9 +6,12 @@ import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.enterprise.inject.New;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -66,5 +69,10 @@ public class ExamController {
 		return "redirect:/mvc/exam/"; // 重導到首頁
 	}
 	
+	@RequestMapping("/delete/{id}")
+	public String delete(@PathVariable("id") String id) {
+		exams.removeIf(e -> e.getId().equals(id));
+		return "redirect:/mvc/exam/"; // 重導到首頁
+	}
 	
 }
