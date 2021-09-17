@@ -88,6 +88,7 @@
 							<form:option value="809">OCP II 809</form:option>
 							<form:option value="900">OCAD 900</form:option>
 						</form:select>
+						<form:errors path="name" cssClass="error" />
 						<p />
 						考試時段（可複選）：
 						<form:checkbox path="slot" value="A" />
@@ -96,11 +97,13 @@
 						下午（B）
 						<form:checkbox path="slot" value="C" />
 						晚上（C）
+						<form:errors path="slot" cssClass="error" />
 						<p />
 						繳費狀況： 已繳
 						<form:radiobutton path="pay" value="true" />
 						未繳
 						<form:radiobutton path="pay" value="false" />
+						<form:errors path="pay" cssClass="error" />
 						<p />
 						備註：
 						<form:textarea path="note" />
