@@ -1,17 +1,13 @@
 package com.mvc.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import javax.enterprise.inject.New;
-import javax.validation.Valid;
-
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.counting;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,6 +25,15 @@ public class ExamController {
 		model.addAttribute("exam", e); // 給表單使用
 		model.addAttribute("exams", exams); // 給資料呈現使用
 		model.addAttribute("action", "create");
+		// 統計資料
+		// 1. 各科考試報名人數
+		Map<String, Long> stat1 = exams.stream()
+				      				   .collect(groupingBy(Exam::getName, counting()));
+		// 2. 考試付款狀況
+		Map<String, Long> stat2 = exams.stream()
+				   					   .collect(groupingBy(Exam::getPay, counting()));
+		model.addAttribute("stat1", stat1);
+		model.addAttribute("stat2", stat2);
 		return "exam";
 	}
 	

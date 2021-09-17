@@ -98,7 +98,13 @@
 				</table>
 			</td>
 			<!-- 資料統計圖 -->
-			<td valign="top"></td>
+			<td valign="top">
+				<!-- 各科考試報名人數 -->
+				${ stat1 }
+				<p />
+				<!-- 考試付款狀況 -->
+				${ stat2 }
+			</td>
 		</tr>
 	</table>
 </body>
