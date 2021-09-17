@@ -29,9 +29,9 @@
 		'packages' : [ 'corechart' ]
 	});
 	google.charts.setOnLoadCallback(drawChart);
-
+	google.charts.setOnLoadCallback(drawChart2);
+	
 	function drawChart() {
-
 		var data = google.visualization.arrayToDataTable([
 				[ '考試代號', '報考人數' ], 
 				// {808=2, 809=1}
@@ -39,16 +39,30 @@
 				[ '${s.key}', ${s.value} ], 
 				</c:forEach>
 		]);
-
 		var options = {
 			title : '各科考試報名人數'
 		};
-
 		var chart = new google.visualization.PieChart(document
 				.getElementById('piechart'));
-
 		chart.draw(data, options);
 	}
+	
+	function drawChart2() {
+		var data = google.visualization.arrayToDataTable([
+				[ '繳費狀況', '人數' ], 
+				// {false=1, true=2}
+				<c:forEach items="${stat2}" var="s">
+				[ '${s.key}', ${s.value} ], 
+				</c:forEach>
+		]);
+		var options = {
+			title : '繳費狀況人數'
+		};
+		var chart = new google.visualization.ColumnChart(document
+				.getElementById('columnchart'));
+		chart.draw(data, options);
+	}
+	
 </script>
 </head>
 <body style="padding: 15px;">
@@ -130,7 +144,9 @@
 				${ stat1 }
 				<div id="piechart" style="width: 500px; height: 300px"></div>
 				<p /> 
-				<!-- 考試付款狀況 --> ${ stat2 }
+				<!-- 考試付款狀況 --> 
+				${ stat2 }
+				<div id="columnchart" style="width: 500px; height: 300px"></div>
 			</td>
 		</tr>
 	</table>
