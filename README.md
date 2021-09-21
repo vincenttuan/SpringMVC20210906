@@ -5,5 +5,9 @@ SpringMVC20210906
 <a href='https://github.com/vincenttuan/SpringMVC20210906/blob/main/src/main/webapp/WEB-INF/springmvc-servlet.xml'>
 springmvc-servlet.xml
 </a>
+的設定<br />
+<a href='https://github.com/vincenttuan/SpringMVC20210906/blob/main/src/main/webapp/WEB-INF/web.xml'>
+web.xml
+</a>
 的設定
 
