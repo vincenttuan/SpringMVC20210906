@@ -18,15 +18,15 @@ public class Product {
 	@NotNull(message = "請選擇商品分類")
 	private Group group; // 商品分類
 	
-	@NotBlank(message = "商品名稱不可是空值")
+	@NotNull(message = "商品名稱不可是空值")
 	@Size(min = 3, max = 50, message = "商品名稱必須介於3~50字之間")
 	private String name; // 商品名稱
 	
-	@NotBlank(message = "商品價格不可是空值")
+	@NotNull(message = "商品價格不可是空值")
 	@Range(min = 1, max = 10000, message = "商品價格必須介於1~10000元之間")
 	private Double price; // 商品價格
 	
-	@NotBlank(message = "商品數量不可是空值")
+	@NotNull(message = "商品數量不可是空值")
 	@Min(value = 1, message = "商品數量必須大於或等於1")
 	private Integer amount;// 商品數量
 	
