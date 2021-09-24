@@ -27,7 +27,7 @@
                             價格：
                             <form:input path="price" placeholder="請輸入商品價格" />
                             <p />
-                            價格：
+                            數量：
                             <form:input path="amount" placeholder="請輸入商品數量" />
                             <p />
                             日期：
@@ -42,6 +42,8 @@
                             		class="pure-button pure-button-primary">
                             	reset
                             </button>
+                            <p />
+                            <form:errors path="*" />
                         </fieldset>
                     </form:form>
                 </td>
