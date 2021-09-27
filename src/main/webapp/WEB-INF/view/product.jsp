@@ -22,7 +22,8 @@
                             			 itemValue="gid" />
                             <p />
                             品名：
-                            <form:input path="name" placeholder="請輸入商品名稱" />
+                            <form:input path="name" placeholder="請輸入商品名稱" readonly="${action == 'update'?'true':'false'}"  />
+                            
                             <p />
                             價格：
                             <form:input path="price" placeholder="請輸入商品價格" />
@@ -58,7 +59,7 @@
                                         <th>price</th>
                                         <th>amount</th>
                                         <th>group</th>
-                                        <th>update</th>
+                                        <th>edit</th>
                                         <th>delete</th>
                                         <th>data</th>
                                     </tr>
@@ -71,7 +72,7 @@
                                             <td>${p.amount}</td>
                                             <td>${p.group}</td>
                                             <td>
-                                                <a class="update" href="${pageContext.request.contextPath}/mvc/product/get/${p.name}" >Update</a>
+                                                <a class="update" href="${pageContext.request.contextPath}/mvc/product/get/${p.name}" >Edit</a>
                                             </td>
                                             <td>
                                                 <a class="delete" href="${pageContext.request.contextPath}/mvc/product/delete/${p.name}" >Delete</a>
