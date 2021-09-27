@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mvc.entity.products.Group;
 import com.mvc.entity.products.Product;
+import com.mvc.entity.products.Size;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -17,6 +18,13 @@ public class ProductServiceImpl implements ProductService {
 			groups.put(1, new Group(1, "A"));
 			groups.put(2, new Group(2, "B"));
 			groups.put(3, new Group(3, "C"));
+		}
+		if(sizes.size() == 0) {
+			// 初始化商品尺寸資料
+			sizes.put(1, new Size(1, "S"));
+			sizes.put(2, new Size(2, "M"));
+			sizes.put(3, new Size(3, "L"));
+			sizes.put(4, new Size(4, "XL"));
 		}
 	}
 	

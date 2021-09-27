@@ -18,6 +18,10 @@ public class Product {
 	@NotNull(message = "請選擇商品分類")
 	private Group group; // 商品分類
 	
+	@NotBlank(message = "請選擇尺寸名稱")
+	@NotNull(message = "請選擇尺寸名稱")
+	private String size; // 尺寸名稱
+	
 	@NotNull(message = "商品名稱不可是空值")
 	@Size(min = 3, max = 50, message = "商品名稱必須介於3~50字之間")
 	private String name; // 商品名稱
@@ -40,6 +44,14 @@ public class Product {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public String getName() {
@@ -76,9 +88,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [group=" + group + ", name=" + name + ", price=" + price + ", amount=" + amount + ", date="
-				+ date + "]";
+		return "Product [group=" + group + ", size=" + size + ", name=" + name + ", price=" + price + ", amount="
+				+ amount + ", date=" + date + "]";
 	}
-	
+
 	
 }
