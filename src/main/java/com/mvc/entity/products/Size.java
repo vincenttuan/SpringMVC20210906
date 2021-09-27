@@ -32,6 +32,11 @@ public class Size {
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
+
+	@Override
+	public String toString() {
+		return "Size [sid=" + sid + ", sname=" + sname + "]";
+	}
 	
 	
 	

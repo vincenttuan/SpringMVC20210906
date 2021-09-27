@@ -1,5 +1,6 @@
 package com.mvc.entity.products;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.validation.constraints.Min;
@@ -21,6 +22,10 @@ public class Product {
 	@NotBlank(message = "請選擇尺寸名稱")
 	@NotNull(message = "請選擇尺寸名稱")
 	private String size; // 尺寸名稱
+	
+	@NotBlank(message = "請選擇級別")
+	@NotNull(message = "請選擇級別")
+	private Integer[] levelIds; // 級別id (多筆)
 	
 	@NotNull(message = "商品名稱不可是空值")
 	@Size(min = 3, max = 50, message = "商品名稱必須介於3~50字之間")
@@ -52,6 +57,14 @@ public class Product {
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public Integer[] getLevelIds() {
+		return levelIds;
+	}
+
+	public void setLevelIds(Integer[] levelIds) {
+		this.levelIds = levelIds;
 	}
 
 	public String getName() {
@@ -88,8 +101,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [group=" + group + ", size=" + size + ", name=" + name + ", price=" + price + ", amount="
-				+ amount + ", date=" + date + "]";
+		return "Product [group=" + group + ", size=" + size + ", levelIds=" + Arrays.toString(levelIds) + ", name="
+				+ name + ", price=" + price + ", amount=" + amount + ", date=" + date + "]";
 	}
 
 	
