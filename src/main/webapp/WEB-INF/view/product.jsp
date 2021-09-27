@@ -29,9 +29,11 @@
                             			 delimiter=" | " />
                             <p />
                             級別：
-                            <input type="checkbox" value="1">一般
-                            <input type="checkbox" value="2">會員
-                            <input type="checkbox" value="3">員工
+                            <form:checkboxes path="levelIds"
+                            			 items="${ levels }"
+                            			 itemLabel="lname"
+                            			 itemValue="lid"
+                            			 delimiter="  " />
                             <p />
                             品名：
                             <form:input path="name" placeholder="請輸入商品名稱" readonly="${action == 'update'?'true':'false'}"  />

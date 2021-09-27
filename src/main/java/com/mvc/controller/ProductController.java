@@ -18,7 +18,7 @@ import com.mvc.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/product")
-@SessionAttributes(value = {"groups", "products", "sizes"})
+@SessionAttributes(value = {"groups", "products", "sizes", "levels"})
 public class ProductController {
 	
 	@Autowired
@@ -30,6 +30,7 @@ public class ProductController {
 		model.addAttribute("groups", productService.groups.values());
 		model.addAttribute("products", productService.query());
 		model.addAttribute("sizes", productService.sizes.values());
+		model.addAttribute("levels", productService.levels.values());
 		model.addAttribute("action", "save");
 		return "product";
 	}
